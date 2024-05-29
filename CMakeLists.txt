@@ -17,6 +17,10 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        news.ui
+        schedulesample.ui
+        coursesample.ui
+
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -38,6 +42,18 @@ else()
     else()
         add_executable(VirtualDekanatClient
             ${PROJECT_SOURCES}
+            test.json
+
+            sidenavigationbar.h sidenavigationbar.cpp sidenavigationbar.ui
+            states.cpp
+            account.h account.cpp account.ui
+            clientdata.h clientdata.cpp
+            navigationbutton.h navigationbutton.cpp
+            pagetitle.h pagetitle.cpp pagetitle.ui
+            page.h page.cpp page.ui
+            pagecontent.h pagecontent.cpp pagecontent.ui
+            server.h server.cpp
+
         )
     endif()
 endif()

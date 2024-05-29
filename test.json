@@ -1,0 +1,36 @@
+{
+    "Plan": [
+        {
+            "baslangic nokta": 0,
+            "rota no": 0,
+            "toplam nokta": 3
+        },
+        {
+            "Boylam": 32.7088737487793,
+            "Enlem": 40.00210952758789,
+            "görev": 0,
+            "irtifa": 2500,
+            "no": 0,
+            "sonraki": 1,
+            "yaricap": 0
+        },
+        {
+            "Boylam": 32.715911865234375,
+            "Enlem": 39.97725296020508,
+            "görev": 0,
+            "irtifa": 2500,
+            "no": 1,
+            "sonraki": 2,
+            "yaricap": 0
+        },
+        {
+            "Boylam": 32.74869918823242,
+            "Enlem": 40.003292083740234,
+            "görev": 0,
+            "irtifa": 2500,
+            "no": 2,
+            "sonraki": 0,
+            "yaricap": 0
+        }
+    ]
+}
