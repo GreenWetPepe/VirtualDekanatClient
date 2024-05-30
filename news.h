@@ -13,7 +13,7 @@ class News : public QWidget
 
 public:
     explicit News(QWidget *parent = nullptr);
-    ~News();
+    ~News() override;
 
 private:
     Ui::News *ui;

@@ -1,27 +1,39 @@
 #include "server.h"
 
+#include <QCoreApplication>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QUrl>
 #include <QDebug>
 
-bool Server::isCreated = false;
-// QSqlDatabase Server::db = QSqlDatabase::addDatabase("QPSQL");
 
 Server::~Server()
 {
-    // db.close();
-    isCreated = false;
 
     qDebug() << "Connection close";
 }
 
-void Server::initConnection()
+void Server::sendRequest(std::string req)
 {
-    // if (isCreated) return;
+    QNetworkAccessManager *manager = new QNetworkAccessManager();
+    QUrl url(QString::fromStdString(req));
+    QNetworkRequest request(url);
 
-    // db.setHostName("localhost");
-    // db.setDatabaseName("dean_office");
-    // db.setUserName("postgres");
-    // db.setPassword("s20g;_2-r505t8");
+    // Отправляем запрос
+    QNetworkReply *reply = manager->get(request);
 
-    // if (db.open()) qDebug() << "Connection open";
-    // isCreated = true;
+    // Подключаем слот для обработки ответа
+    QObject::connect(reply, &QNetworkReply::finished, [reply]() {
+        if (reply->error() == QNetworkReply::NoError) {
+            // Читаем данные из ответа
+            QByteArray response = reply->readAll();
+            QString responseString = QString::fromUtf8(response);
+            qDebug() << "Response:" << responseString;
+        } else {
+            // Обрабатываем ошибку
+            qDebug() << "Error:" << reply->errorString();
+        }
+        reply->deleteLater(); // Удаляем объект после завершения
+    });
 }

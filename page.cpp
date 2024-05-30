@@ -12,7 +12,8 @@ Page::Page(int userType, int pageType, QWidget *parent) :
     title = new PageTitle(userType, pageType, this);
     content = new PageContent(userType, pageType, this);
 
-    title->setMaximumHeight(50);
+    title->setMinimumHeight(70);
+    title->setMaximumHeight(70);
 
     ui->verticalLayout->addWidget(title);
     ui->verticalLayout->addWidget(content);

@@ -25,16 +25,17 @@ void ClientData::setUserType(int userType)
     case UserTypes::TEACHER:
         ClientData::userType = UserTypes::TEACHER;
         break;
-    case UserTypes::DEPART_ADMIN:
-        ClientData::userType = UserTypes::DEPART_ADMIN;
-        break;
-    case UserTypes::DEAN:
-        ClientData::userType = UserTypes::DEAN;
-        break;
-    case UserTypes::ADMIN:
-        ClientData::userType = UserTypes::ADMIN;
-        break;
     }
 }
+
+//int ClientData::getUserId()
+//{
+//    return ClientData::userId;
+//}
+
+//void ClientData::setUserId(int userId)
+//{
+//    ClientData::userId = userId;
+//}
 
 

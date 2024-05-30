@@ -11,6 +11,7 @@ PageTitle::PageTitle(int userType, int pageType, QWidget *parent) :
     ui(new Ui::PageTitle)
 {
     ui->setupUi(this);
+    setStyleSheet("background-color: #3498db;");
 
 
     changeTitle(userType, pageType);

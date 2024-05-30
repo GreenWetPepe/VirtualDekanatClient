@@ -9,10 +9,12 @@ News::News(QWidget *parent) :
     ui(new Ui::News)
 {
     ui->setupUi(this);
+
 }
 
 News::~News()
 {
+    hide();
     delete ui;
 }
 
