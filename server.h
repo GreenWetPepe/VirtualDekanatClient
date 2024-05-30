@@ -11,7 +11,13 @@
 class Server
 {
 public:
-    Server();
+    ~Server();
+
+    static void initConnection();
+
+private:
+    // static QSqlDatabase db;
+    static bool isCreated;
 };
 
 #endif // SERVER_H

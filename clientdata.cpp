@@ -1,6 +1,6 @@
 #include "clientdata.h"
 
-unsigned int ClientData::userType = UserTypes::ADMIN;
+unsigned int ClientData::userType = UserTypes::GUEST;
 
 ClientData::ClientData()
 {

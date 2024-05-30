@@ -15,7 +15,7 @@ public:
     explicit PageContent(int userType, int pageType, QWidget *parent = nullptr);
     ~PageContent();
 
-    void changeContent();
+    void changeContent(int userType, int pageType);
 
 private:
     Ui::PageContent *ui;

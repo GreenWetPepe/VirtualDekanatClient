@@ -1,6 +1,12 @@
 #include "pagecontent.h"
 #include "ui_pagecontent.h"
 
+#include "states.cpp"
+
+#include <QLabel>
+#include <QLayoutItem>
+#include <QPushButton>
+
 PageContent::PageContent(int userType, int pageType, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::PageContent)
@@ -37,4 +43,5 @@ void PageContent::changeContent(int userType, int pageType)
             ui->horizontalLayout->addWidget(new QLabel(QString("Расписание занятий"), this));
             ui->horizontalLayout->addWidget(new QPushButton(QString("Календарь"), this));
         }
+    }
 }
