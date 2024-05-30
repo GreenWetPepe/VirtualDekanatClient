@@ -5,6 +5,7 @@
 #include <QApplication>
 #include <QSqlDatabase>
 #include <QDebug>
+#include <QDir>
 
 int main(int argc, char *argv[])
 {
@@ -14,17 +15,17 @@ int main(int argc, char *argv[])
     QStringList drivers = QSqlDatabase::drivers();
     // qDebug() << "Available drivers:" << drivers;
 
-    QSqlDatabase *db = new QSqlDatabase(QSqlDatabase::addDatabase("QPSQL"));
-    db->setHostName("127.0.0.1");
-    db->setPort(5433);
-    db->setDatabaseName("dean_office");
-    db->setUserName("postgres");
-    db->setPassword("s20g;_2-r505t8");
-    db->open();
-    if (db->isOpen()) qDebug() << "COEFEF";
-    qDebug() << "Error: " << db->lastError().text();
+    QSqlDatabase db = QSqlDatabase::addDatabase("QPSQL");
+    db.setHostName("127.0.0.1");
+    db.setPort(5433);
+    db.setDatabaseName("dean_office");
+    db.setUserName("postgres");
+    db.setPassword("s20g;_2-r505t8");
+    db.open();
+    if (db.isOpen()) qDebug() << "COEFEF";
+    qDebug() << "Error: " << db.lastError().text();
 
-
+    qDebug() << QDir::currentPath();
     w.show();
     return a.exec();
 }

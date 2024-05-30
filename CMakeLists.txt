@@ -18,7 +18,6 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
-        news.ui
         schedulesample.ui
         coursesample.ui
 
@@ -54,6 +53,9 @@ else()
             page.h page.cpp page.ui
             pagecontent.h pagecontent.cpp pagecontent.ui
             server.h server.cpp
+            news.h news.cpp news.ui
+            ascommunicator.h ascommunicator.cpp
+
 
         )
     endif()

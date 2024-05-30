@@ -1,9 +1,11 @@
 #include "pagecontent.h"
 #include "ui_pagecontent.h"
 
+#include "news.h"
 #include "states.cpp"
 
 #include <QLabel>
+#include <QDebug>
 #include <QLayoutItem>
 #include <QPushButton>
 
@@ -30,8 +32,8 @@ void PageContent::changeContent(int userType, int pageType)
     switch (pageType)
     {
     case NavigationButtons::NEWS:
-        ui->horizontalLayout->addWidget(new QLabel(QString("Новости"), this));
-        ui->horizontalLayout->addWidget(new QLabel(QString("Все новости"), this));
+        ui->horizontalLayout->addWidget(new News(this));
+        ui->horizontalLayout->takeAt(0)->widget()->show();
         break;
     case NavigationButtons::ACCOUNT:
         ui->horizontalLayout->addWidget(new QLabel(QString("Личный кабинет"), this));

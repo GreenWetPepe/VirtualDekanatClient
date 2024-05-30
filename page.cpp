@@ -26,5 +26,5 @@ Page::~Page()
 void Page::changeForm(int userType, int pageType)
 {
     title->changeTitle(userType, pageType);
-    // content->change
+    content->changeContent(userType, pageType);
 }
