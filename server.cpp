@@ -1,39 +1,60 @@
 #include "server.h"
-
-#include <QCoreApplication>
-#include <QNetworkAccessManager>
-#include <QNetworkRequest>
-#include <QNetworkReply>
 #include <QUrl>
+#include <QNetworkRequest>
 #include <QDebug>
+#include <QJsonParseError>
 
+QJsonArray Server::sendRequest(const std::string &req) {
+    QEventLoop eventLoop;
+    QNetworkAccessManager manager;
 
-Server::~Server()
-{
+    // Временный объект Server для использования слотов и сигналов
+    Server tempServer;
+    QObject::connect(&manager, &QNetworkAccessManager::finished, &tempServer, &Server::onRequestFinished);
 
-    qDebug() << "Connection close";
-}
-
-void Server::sendRequest(std::string req)
-{
-    QNetworkAccessManager *manager = new QNetworkAccessManager();
-    QUrl url(QString::fromStdString(req));
+    // Преобразуем std::string в QString
+    QString qReq = QString::fromStdString(req);
+    QUrl url(qReq);
     QNetworkRequest request(url);
 
     // Отправляем запрос
-    QNetworkReply *reply = manager->get(request);
+    QNetworkReply *reply = manager.get(request);
 
-    // Подключаем слот для обработки ответа
-    QObject::connect(reply, &QNetworkReply::finished, [reply]() {
-        if (reply->error() == QNetworkReply::NoError) {
-            // Читаем данные из ответа
-            QByteArray response = reply->readAll();
-            QString responseString = QString::fromUtf8(response);
-            qDebug() << "Response:" << responseString;
+    // Подключаем завершение запроса к выходу из eventLoop
+    QObject::connect(reply, &QNetworkReply::finished, &eventLoop, &QEventLoop::quit);
+
+    // Ожидаем завершения запроса
+    eventLoop.exec();
+
+    // Преобразуем ответ в JSON
+    QJsonArray jsonResponse;
+    if (!tempServer.responseString.isEmpty()) {
+        QJsonParseError parseError;
+        QJsonDocument jsonDoc = QJsonDocument::fromJson(tempServer.responseString.toUtf8(), &parseError);
+
+        if (parseError.error != QJsonParseError::NoError) {
+            qDebug() << "JSON parse error:" << parseError.errorString();
+            qDebug() << "Response String:" << tempServer.responseString;
+        } else if (jsonDoc.isArray()) {
+            jsonResponse = jsonDoc.array();
         } else {
-            // Обрабатываем ошибку
-            qDebug() << "Error:" << reply->errorString();
+            qDebug() << "JSON document is not an array.";
+            qDebug() << "Response String:" << tempServer.responseString;
         }
-        reply->deleteLater(); // Удаляем объект после завершения
-    });
+    } else {
+        qDebug() << "Response string is empty.";
+    }
+
+    return jsonResponse;
+}
+
+void Server::onRequestFinished(QNetworkReply *reply) {
+    if (reply->error() == QNetworkReply::NoError) {
+        QByteArray response = reply->readAll();
+        responseString = QString::fromUtf8(response);
+    } else {
+        qDebug() << "Error:" << reply->errorString();
+        responseString = "";
+    }
+    reply->deleteLater();
 }

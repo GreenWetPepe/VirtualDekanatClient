@@ -12,8 +12,8 @@ public:
     static int getUserType();
     static void setUserType(int userType);
 
-//    static int getUserId();
-//    static void setUserId(int userId);
+   static int getUserId();
+   static void setUserId(int userId);
 
 private:
     static unsigned int userType;

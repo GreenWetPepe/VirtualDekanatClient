@@ -15,7 +15,11 @@ public:
     explicit PageTitle(int userType, int pageType, QWidget *parent = nullptr);
     ~PageTitle();
 
+    void clearContent();
+
     void changeTitle(int userType, int pageType);
+
+    void changeToTests(QString courseName);
 
 private:
     Ui::PageTitle *ui;

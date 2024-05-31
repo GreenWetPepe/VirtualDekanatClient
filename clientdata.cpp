@@ -1,6 +1,10 @@
 #include "clientdata.h"
 
-unsigned int ClientData::userType = UserTypes::GUEST;
+// unsigned int ClientData::userType = UserTypes::TEACHER;
+// int ClientData::userId = 2;
+
+unsigned int ClientData::userType = UserTypes::STUDENT;
+int ClientData::userId = 7;
 
 ClientData::ClientData()
 {
@@ -28,14 +32,14 @@ void ClientData::setUserType(int userType)
     }
 }
 
-//int ClientData::getUserId()
-//{
-//    return ClientData::userId;
-//}
+int ClientData::getUserId()
+{
+   return ClientData::userId;
+}
 
-//void ClientData::setUserId(int userId)
-//{
-//    ClientData::userId = userId;
-//}
+void ClientData::setUserId(int userId)
+{
+   ClientData::userId = userId;
+}
 
 

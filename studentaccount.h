@@ -12,7 +12,7 @@ class StudentAccount : public QWidget
     Q_OBJECT
 
 public:
-    explicit StudentAccount(QWidget *parent = nullptr);
+    explicit StudentAccount(int userId, QWidget *parent = nullptr);
     ~StudentAccount();
 
 private:

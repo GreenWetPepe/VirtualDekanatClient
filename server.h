@@ -3,14 +3,25 @@
 
 #include <iostream>
 
-class Server
-{
-public:
-    ~Server();
+#include <QObject>
+#include <QString>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QEventLoop>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
 
-    static void sendRequest(std::string req);
+class Server : public QObject {
+    Q_OBJECT
+public:
+    explicit Server(QObject *parent = nullptr) : QObject(parent) {}
+    static QJsonArray sendRequest(const std::string &req);
+
+private slots:
+    void onRequestFinished(QNetworkReply *reply);
 
 private:
+    QString responseString;
 };
-
 #endif // SERVER_H

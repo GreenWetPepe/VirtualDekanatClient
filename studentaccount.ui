@@ -58,13 +58,13 @@
      <rect>
       <x>10</x>
       <y>70</y>
-      <width>49</width>
+      <width>191</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -76,13 +76,13 @@
      <rect>
       <x>10</x>
       <y>120</y>
-      <width>49</width>
+      <width>211</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -107,13 +107,13 @@
      <rect>
       <x>10</x>
       <y>170</y>
-      <width>49</width>
+      <width>221</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -138,13 +138,13 @@
      <rect>
       <x>10</x>
       <y>220</y>
-      <width>49</width>
+      <width>241</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -182,13 +182,13 @@
      <rect>
       <x>10</x>
       <y>270</y>
-      <width>49</width>
+      <width>261</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -213,13 +213,13 @@
      <rect>
       <x>10</x>
       <y>320</y>
-      <width>49</width>
+      <width>261</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -244,13 +244,13 @@
      <rect>
       <x>10</x>
       <y>370</y>
-      <width>49</width>
+      <width>271</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -262,13 +262,13 @@
      <rect>
       <x>340</x>
       <y>70</y>
-      <width>49</width>
+      <width>241</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -293,13 +293,13 @@
      <rect>
       <x>340</x>
       <y>120</y>
-      <width>49</width>
+      <width>261</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -324,13 +324,13 @@
      <rect>
       <x>340</x>
       <y>170</y>
-      <width>49</width>
+      <width>291</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -404,13 +404,13 @@
      <rect>
       <x>340</x>
       <y>260</y>
-      <width>49</width>
+      <width>271</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">
@@ -435,13 +435,13 @@
      <rect>
       <x>340</x>
       <y>310</y>
-      <width>49</width>
+      <width>291</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>11</pointsize>
+      <pointsize>10</pointsize>
      </font>
     </property>
     <property name="text">

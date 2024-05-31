@@ -20,6 +20,9 @@ public:
 
     void changeForm(int userType, int pageType);
 
+    void changeFormToTests(int courseId, QString courseName);
+    void changeFormToTest(int testId, QString testName);
+
 private:
     Ui::Page *ui;
 

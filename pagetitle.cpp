@@ -22,13 +22,18 @@ PageTitle::~PageTitle()
     delete ui;
 }
 
-void PageTitle::changeTitle(int userType, int pageType)
+void PageTitle::clearContent()
 {
     QLayoutItem *item;
     while((item = ui->horizontalLayout->takeAt(0)) != nullptr)
     {
         delete item->widget();
     }
+}
+
+void PageTitle::changeTitle(int userType, int pageType)
+{
+    clearContent();
 
     switch (pageType)
     {
@@ -62,5 +67,11 @@ void PageTitle::changeTitle(int userType, int pageType)
 //        ui->horizontalLayout->addWidget(QLabel(QString("Новости")));
 //        ui->horizontalLayout->addWidget(QLabel(QString("Все новости")));
 //    }
-//    if ()
+    //    if ()
+    }
+
+void PageTitle::changeToTests(QString courseName)
+{
+    clearContent();
+    ui->horizontalLayout->addWidget(new QLabel(courseName, this));
 }

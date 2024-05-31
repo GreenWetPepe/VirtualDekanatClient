@@ -47,7 +47,7 @@ else()
 
             sidenavigationbar.h sidenavigationbar.cpp sidenavigationbar.ui
             states.cpp
-            account.h account.cpp account.ui
+
             clientdata.h clientdata.cpp
             navigationbutton.h navigationbutton.cpp
             pagetitle.h pagetitle.cpp pagetitle.ui
@@ -65,6 +65,7 @@ else()
             graphstaticteacher.h graphstaticteacher.cpp graphstaticteacher.ui
             studentaccount.h studentaccount.cpp studentaccount.ui
             teacheraccount.h teacheraccount.cpp teacheraccount.ui
+            test.h test.cpp test.ui
 
 
 
