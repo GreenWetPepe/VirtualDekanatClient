@@ -65,7 +65,9 @@ else()
             graphstaticteacher.h graphstaticteacher.cpp graphstaticteacher.ui
             studentaccount.h studentaccount.cpp studentaccount.ui
             teacheraccount.h teacheraccount.cpp teacheraccount.ui
+            test.ui
             test.h test.cpp test.ui
+            testsample.h testsample.cpp testsample.ui
 
 
 

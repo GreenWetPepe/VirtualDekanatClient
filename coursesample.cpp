@@ -38,24 +38,6 @@ CourseSample::CourseSample(QString courseName, std::vector<QString> teachers, in
     }
 }
 
-CourseSample::CourseSample(QString testName, int testId, QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::CourseSample)
-{
-    ui->setupUi(this);
-    ui->frame->setStyleSheet(
-        "QFrame {"
-        "border-radius: 15px;" // Радиус скругления углов
-        "background-color: #e250f1;" // Цвет фона
-        "}"
-        );
-
-    ui->courseL->setText(testName);
-    ui->label->hide();
-    ui->supportL->hide();
-    courseId = testId;
-}
-
 CourseSample::~CourseSample()
 {
     delete ui;
@@ -64,8 +46,7 @@ CourseSample::~CourseSample()
 void CourseSample::mousePressEvent(QMouseEvent *event) {
     if (event->button() == Qt::LeftButton)
     {
-        if (!ui->supportL->isHidden()) emit openTests(courseId, ui->courseL->text());
-        else emit openTest(courseId, ui->courseL->text());
+        emit openTests(courseId, ui->courseL->text());
     }
 
     QWidget::mousePressEvent(event);

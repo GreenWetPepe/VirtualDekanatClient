@@ -15,12 +15,10 @@ class CourseSample : public QWidget
 
 public:
     explicit CourseSample(QString courseName, std::vector<QString> teachers, int courseId, QWidget *parent = nullptr);
-    explicit CourseSample(QString testName, int testId, QWidget *parent = nullptr);
     ~CourseSample();
 
 signals:
     void openTests(int courseId, QString courseName);
-    void openTest(int testId, QString testName);
 
 private:
     Ui::CourseSample *ui;

@@ -26,8 +26,6 @@ public:
 
 private:
     Ui::PageContent *ui;
-
-    QWidget *page;
 };
 
 #endif // PAGECONTENT_H

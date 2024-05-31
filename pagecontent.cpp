@@ -12,6 +12,8 @@
 #include "studentaccount.h"
 #include "teacheraccount.h"
 #include "page.h"
+#include "test.h"
+#include "testsample.h""
 
 #include <QLabel>
 #include <QDebug>
@@ -23,8 +25,6 @@ PageContent::PageContent(int userType, int pageType, QWidget *parent) :
     ui(new Ui::PageContent)
 {
     ui->setupUi(this);
-
-    page = parent;
 
     changeContent(userType, pageType);
 }
@@ -148,14 +148,13 @@ void PageContent::changeToTests(int courseId)
     TileNet *tileNet = new TileNet(this);
     QJsonArray response = Server::sendRequest("http://localhost:5000/api/v1/tests?discipline_id=" + std::to_string(courseId));
 
-    qDebug() << response;
     for (int i = 0; i < response.size(); i++)
     {
         QString testName = response.at(i).toObject()["test_name"].toString();
         int testId = response.at(i).toObject()["test_id"].toInt();
 
-        CourseSample *test = new CourseSample(testName, testId, tileNet);
-        connect(test, &CourseSample::openTest, qobject_cast<Page*>(parent()), &Page::changeFormToTest);
+        TestSample *test = new TestSample(testName, testId, tileNet);
+        connect(test, &TestSample::openTest, qobject_cast<Page*>(parent()), &Page::changeFormToTest);
         tileNet->addTile(test);
     }
 
@@ -165,7 +164,12 @@ void PageContent::changeToTests(int courseId)
 
 void PageContent::changeToTest(int testId)
 {
+    clearContent();
 
+    Test *test = new Test(testId, this);
+
+    ui->horizontalLayout->addWidget(test);
+    test->show();
 }
 
 

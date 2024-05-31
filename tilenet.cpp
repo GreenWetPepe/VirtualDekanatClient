@@ -11,13 +11,13 @@ TileNet::TileNet(QWidget *parent) :
 TileNet::~TileNet()
 {
     delete ui;
-//    for (int i = 0; i < ui->gridLayout_2->rowCount(); i++)
-//    {
-//        for (int j = 0; j < ui->gridLayout_2->columnCount(); j++)
-//        {
-//            if (ui->scrollAreaWidgetContents->item)
-//        }
-//    }
+   for (int i = 0; i < ui->gridLayout_2->rowCount(); i++)
+   {
+       for (int j = 0; j < ui->gridLayout_2->columnCount(); j++)
+       {
+           if (ui->gridLayout_2->itemAtPosition(i, j)) delete ui->gridLayout_2->itemAtPosition(i, j);
+       }
+   }
 }
 
 void TileNet::addTile(QWidget *widget)
